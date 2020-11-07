@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import cn.djzhao.newspractice.NewsContentActivity
 import cn.djzhao.newspractice.R
 import cn.djzhao.newspractice.model.News
+import cn.djzhao.newspractice.utils.times
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.news_title_frag.*
 import java.lang.StringBuilder
@@ -38,7 +39,7 @@ class NewsTitleFragment: Fragment() {
     private fun getNews(): List<News> {
         val newsList = ArrayList<News>()
         for (i in 1..50) {
-            val news = News("this is title $i", getRandomLengthStr("This is content $i. "))
+            val news = News("this is title $i", "This is content $i. " * (1..20).random())
             newsList.add(news)
         }
         return newsList
